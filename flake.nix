@@ -25,6 +25,17 @@
 
             system = "x86_64-linux";
         };
+        desktop = nixpkgs.lib.nixosSystem {
+            specialArgs = {
+                inherit inputs outputs;
+            };
+            modules = [
+                ./configuration.nix
+                ./hardware-configuration.nix #TO DO CHANGE THIS TO DESKTOP
+            ];
+
+            system = "x86_64-linux";
+        };
     };
 
 
